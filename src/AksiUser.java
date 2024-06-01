@@ -62,14 +62,13 @@ public class AksiUser extends Aksi {
             return;
         }
 
-        recentFilm.setStock(recentFilm.getStock()-quantity);
-
         System.out.printf("Harga satuan tiket %.0f\n", recentFilm.getPrice());
         System.out.printf("Total harga %.0f\n", recentFilm.getPrice() * quantity);
 
         if (Akun.getCurrentUser().getSaldo() < recentFilm.getPrice() * quantity) {
             System.out.println("Saldo tidak mencukupi, saldo yang dimiliki 100000.");
         } else {
+            recentFilm.setStock(recentFilm.getStock()-quantity);
             Akun.getCurrentUser().addPesanan(recentFilm, quantity);
             Akun.getCurrentUser().setSaldo(Akun.getCurrentUser().getSaldo()-(recentFilm.getPrice() * quantity));
             System.out.println("Tiket berhasil dipesan.");
