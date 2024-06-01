@@ -11,6 +11,9 @@ public class Main {
         User.addUser("user", "123", false, 100000);
         User.addUser("admin", "123", true, 100000);
 
+        Film.addFilm("Film A", "Deskripsi A", 50000, 10);
+        Film.addFilm("Film B", "Deskripsi B", 60000, 5);
+
         while (run) {
             Aksi.welcome();
             int Aksi = scanner.nextInt();

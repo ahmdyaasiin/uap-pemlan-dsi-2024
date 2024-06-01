@@ -48,4 +48,16 @@ public class Film {
     public static Map<String, Film> getFilms() {
         return films;
     }
+
+    public static Film isAvailable(String name) {
+
+        for (Map.Entry<String, Film> film : Film.getFilms().entrySet()) {
+            if (film.getValue().getName().equalsIgnoreCase(name)) {
+                return film.getValue();
+            }
+        }
+
+        return null;
+    }
+
 }
